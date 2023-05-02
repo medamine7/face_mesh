@@ -1489,7 +1489,7 @@
   }
 
   function Ub(a, b) {
-      window[a] = b
+      self[a] = b
   }
 
   function Vb(a) {
@@ -1566,6 +1566,12 @@
           var d = this,
               e, g, f, h, k, l, n, u, w, r, y;
           return O(c, function (m) {
+              Ub("createMediapipeSolutionsWasm", {
+                locateFile: d.locateFile
+              });
+              Ub("createMediapipeSolutionsPackedAssets", {
+                locateFile: d.locateFile
+              });
               switch (m.g) {
                   case 1:
                       e = d;
@@ -1574,11 +1580,7 @@
                       return N(m, Wb(), 2);
                   case 2:
                       f = m.h;
-                      if ("object" === typeof window) return Ub("createMediapipeSolutionsWasm", {
-                          locateFile: d.locateFile
-                      }), Ub("createMediapipeSolutionsPackedAssets", {
-                          locateFile: d.locateFile
-                      }), l = g.filter(function (t) {
+                      if ("object" === typeof window) return l = g.filter(function (t) {
                           return void 0 !== t.data
                       }), n = g.filter(function (t) {
                           return void 0 === t.data
@@ -1599,7 +1601,7 @@
                           return Z(e, function x() {
                               var z, E, F = this;
                               return O(x, function (I) {
-                                  if (1 == I.g) return z = window.createMediapipeSolutionsWasm, E = window.createMediapipeSolutionsPackedAssets, N(I, z(E), 2);
+                                  if (1 == I.g) return z = self.createMediapipeSolutionsWasm, E = self.createMediapipeSolutionsPackedAssets, N(I, z(E), 2);
                                   F.h = I.h;
                                   I.g = 0
                               })
